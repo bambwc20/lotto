@@ -106,6 +106,25 @@
       <img class="PlayGoogle" src="./PlayGoogle.png" width="50%" />
     </div>
 
+    <div class="SelectLottery">
+      <label for="lottery-select">Choose the lottery item you want:</label>
+      <select
+        id="lottery-select"
+        onchange="
+        let selected_option = document.querySelector('#lottery-select').value
+        if(selected_option === '(US)PowerBall') {
+          window.location = '/(US)PowerBall/index.html'
+        } else if(selected_option === '(KR)Lotto') {
+          window.location = '/index.html'
+        }
+        "
+      >
+        <option selected>Select the lottery item!</option>
+        <option>(KR)Lotto</option>
+        <option>(US)PowerBall</option>
+      </select>
+    </div>
+
     <script src="lotto.js"></script>
   </body>
 </html>

@@ -1,0 +1,142 @@
+.number {
+  display: inline-block;
+  color: white;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  line-height: 60px;
+  font-size: 32px;
+  text-align: center;
+  font-weight: bold;
+  overflow: hidden;
+}
+.numset {
+  text-align: center;
+  padding: 0px;
+  margin-bottom: 30px;
+}
+.numset span:nth-child(1) {
+  background: #fcc43d;
+}
+.numset span:nth-child(2) {
+  background: #fcc43d;
+}
+.numset span:nth-child(3) {
+  background: #8cc6e7;
+}
+.numset span:nth-child(4) {
+  background: #f18d80;
+}
+.numset span:nth-child(5) {
+  background: #f18d80;
+}
+.numset span:nth-child(6) {
+  background: #a7a2de;
+}
+#menu {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+#item {
+  text-align: center;
+  border: 1px gray solid;
+  color: #f5f4f0;
+  margin: 5px;
+  border-radius: 20px;
+}
+#menu #item:nth-child(1) {
+  background-color: #fcc43d;
+}
+#menu #item:nth-child(2) {
+  background-color: #8cc6e7;
+}
+#menu #item:nth-child(3) {
+  background-color: #f18d80;
+}
+#menu #item:nth-child(4) {
+  background-color: #a7a2de;
+}
+body {
+  background-color: #dadada;
+}
+#template {
+  color: rgb(87, 87, 87);
+}
+#template h1 {
+  text-align: center;
+}
+#template ul {
+  margin-right: 20px;
+}
+#title {
+  text-align: center;
+}
+.week_number {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 1px gray solid;
+  padding: 10px;
+  text-align: center;
+  background-color: #eeb292;
+  color: #f5f4f0;
+  font-size: 20px;
+  border-radius: 10px;
+}
+.share {
+  margin-top: 20px;
+  padding: 10px;
+  text-align: center;
+}
+.share div {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #807914;
+  margin-top: 20px;
+}
+#test_btn {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border: 1px solid black;
+  background-color: rgba(0, 0, 0, 0);
+  color: black;
+  padding: 10px;
+  font-size: 30px;
+}
+#test_btn:hover {
+  color: white;
+  background-color: gray;
+  border: 1px solid white;
+}
+#btn_group {
+  text-align: center;
+  margin: 40px;
+}
+
+.loader {
+  margin: 5% auto;
+  height: 100px;
+  width: 100px;
+  border: 6px solid #fff;
+  border-right-color: #c30;
+  border-top-color: #c30;
+  border-radius: 100%;
+  animation: spin 800ms infinite linear;
+}
+
+.PlayGoogleBanner {
+  text-align: center;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+#mini {
+  font-size: 10px;
+}

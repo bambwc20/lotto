@@ -84,6 +84,7 @@ body {
 }
 .share {
   margin-top: 20px;
+  margin-bottom: 10px;
   padding: 10px;
   text-align: center;
 }
@@ -127,6 +128,13 @@ body {
 
 .PlayGoogleBanner {
   text-align: center;
+}
+
+.PlayGoogleText {
+  font-size: 25px;
+  font-style: italic;
+  font-style: bold;
+  color: rgb(224, 62, 62);
 }
 
 @keyframes spin {

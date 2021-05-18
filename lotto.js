@@ -92,9 +92,9 @@ function checkLogic(numbers) {
   for (var i = 0; i < numbers.length; i++) {
     var no = numbers[i];
     if (numbers.indexOf(no + 1) >= 0 && numbers.indexOf(no + 2) >= 0)
-      return false;
+      return true;
   }
-  return true;
+  return false;
 }
 
 function Standard_Deviation(numbers) {
@@ -260,9 +260,9 @@ function genLottoHTML_Select3() {
     var numbers = getLuckyNumber();
     while (Selector) {
       if (
-        checkLogic(numbers) &&
-        Standard_Deviation(numbers) &&
-        Lotto_Sum(numbers)
+        !checkLogic(numbers) === true &&
+        Standard_Deviation(numbers) === true &&
+        Lotto_Sum(numbers) === true
       ) {
         Selector = false;
       } else {
@@ -279,9 +279,9 @@ function genLottoHTML_Select3() {
       var numbers = getLuckyNumber();
       while (Selector) {
         if (
-          checkLogic(numbers) &&
-          Standard_Deviation(numbers) &&
-          Lotto_Sum(numbers)
+          !checkLogic(numbers) === true &&
+          Standard_Deviation(numbers) === true &&
+          Lotto_Sum(numbers) === true
         ) {
           Selector = false;
         } else {
@@ -298,9 +298,9 @@ function genLottoHTML_Select3() {
         var numbers = getLuckyNumber();
         while (Selector) {
           if (
-            checkLogic(numbers) &&
-            Standard_Deviation(numbers) &&
-            Lotto_Sum(numbers)
+            !checkLogic(numbers) === true &&
+            Standard_Deviation(numbers) === true &&
+            Lotto_Sum(numbers) === true
           ) {
             Selector = false;
           } else {
@@ -317,9 +317,9 @@ function genLottoHTML_Select3() {
           var numbers = getLuckyNumber();
           while (Selector) {
             if (
-              checkLogic(numbers) &&
-              Standard_Deviation(numbers) &&
-              Lotto_Sum(numbers)
+              !checkLogic(numbers) === true &&
+              Standard_Deviation(numbers) === true &&
+              Lotto_Sum(numbers) === true
             ) {
               Selector = false;
             } else {
@@ -336,9 +336,9 @@ function genLottoHTML_Select3() {
             var numbers = getLuckyNumber();
             while (Selector) {
               if (
-                checkLogic(numbers) &&
-                Standard_Deviation(numbers) &&
-                Lotto_Sum(numbers)
+                !checkLogic(numbers) === true &&
+                Standard_Deviation(numbers) === true &&
+                Lotto_Sum(numbers) === true
               ) {
                 Selector = false;
               } else {
@@ -366,17 +366,17 @@ function genLottoHTML_Select4() {
   LOTTO.innerHTML = "";
   var lottoHTML = "";
   alert(
-    `확인 버튼을 누르면 AI가 데이터를 분석하고 로또 번호를 추첨해줍니다. (예상 대기 시간: 14~16초)`
+    `확인 버튼을 누르면 AI가 데이터를 분석하고 로또 번호를 추첨해줍니다. (예상 대기 시간: 24~26초)`
   );
   addClass();
   setTimeout(function () {
     var Selector = true;
-    var numbers = getLuckyNumber();
+    var numbers = getLuckyNumber_PastUse();
     while (Selector) {
       if (
-        checkLogic(numbers) &&
-        Standard_Deviation(numbers) &&
-        Lotto_Sum(numbers)
+        !checkLogic(numbers) === true &&
+        Standard_Deviation(numbers) === true &&
+        Lotto_Sum(numbers) === true
       ) {
         Selector = false;
       } else {
@@ -391,12 +391,12 @@ function genLottoHTML_Select4() {
     LOTTO.innerHTML = lottoHTML;
     setTimeout(function () {
       var Selector = true;
-      var numbers = getLuckyNumber();
+      var numbers = getLuckyNumber_PastUse();
       while (Selector) {
         if (
-          checkLogic(numbers) &&
-          Standard_Deviation(numbers) &&
-          Lotto_Sum(numbers)
+          !checkLogic(numbers) === true &&
+          Standard_Deviation(numbers) === true &&
+          Lotto_Sum(numbers) === true
         ) {
           Selector = false;
         } else {
@@ -411,12 +411,12 @@ function genLottoHTML_Select4() {
       LOTTO.innerHTML = lottoHTML;
       setTimeout(function () {
         var Selector = true;
-        var numbers = getLuckyNumber();
+        var numbers = getLuckyNumber_PastUse();
         while (Selector) {
           if (
-            checkLogic(numbers) &&
-            Standard_Deviation(numbers) &&
-            Lotto_Sum(numbers)
+            !checkLogic(numbers) === true &&
+            Standard_Deviation(numbers) === true &&
+            Lotto_Sum(numbers) === true
           ) {
             Selector = false;
           } else {
@@ -431,12 +431,12 @@ function genLottoHTML_Select4() {
         LOTTO.innerHTML = lottoHTML;
         setTimeout(function () {
           var Selector = true;
-          var numbers = getLuckyNumber();
+          var numbers = getLuckyNumber_PastUse();
           while (Selector) {
             if (
-              checkLogic(numbers) &&
-              Standard_Deviation(numbers) &&
-              Lotto_Sum(numbers)
+              !checkLogic(numbers) === true &&
+              Standard_Deviation(numbers) === true &&
+              Lotto_Sum(numbers) === true
             ) {
               Selector = false;
             } else {
@@ -451,12 +451,12 @@ function genLottoHTML_Select4() {
           LOTTO.innerHTML = lottoHTML;
           setTimeout(function () {
             var Selector = true;
-            var numbers = getLuckyNumber();
+            var numbers = getLuckyNumber_PastUse();
             while (Selector) {
               if (
-                checkLogic(numbers) &&
-                Standard_Deviation(numbers) &&
-                Lotto_Sum(numbers)
+                !checkLogic(numbers) === true &&
+                Standard_Deviation(numbers) === true &&
+                Lotto_Sum(numbers) === true
               ) {
                 Selector = false;
               } else {
@@ -473,11 +473,11 @@ function genLottoHTML_Select4() {
             setTimeout(function () {
               alert("완료하였습니다.");
             }, 100);
-          }, 3150);
-        }, 3150);
-      }, 3150);
-    }, 3150);
-  }, 3150);
+          }, 5150);
+        }, 5150);
+      }, 5150);
+    }, 5150);
+  }, 5150);
 }
 
 // var keydownCtrl = 0;

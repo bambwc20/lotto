@@ -1,6 +1,6 @@
 .number {
   display: inline-block;
-  color: white;
+  color: black;
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -16,22 +16,23 @@
   margin-bottom: 30px;
 }
 .numset span:nth-child(1) {
-  background: #fcc43d;
+  background: white;
 }
 .numset span:nth-child(2) {
-  background: #fcc43d;
+  background: white;
 }
 .numset span:nth-child(3) {
-  background: #8cc6e7;
+  background: white;
 }
 .numset span:nth-child(4) {
-  background: #f18d80;
+  background: white;
 }
 .numset span:nth-child(5) {
-  background: #f18d80;
+  background: white;
 }
 .numset span:nth-child(6) {
-  background: #a7a2de;
+  background: red;
+  color: white;
 }
 #menu {
   display: grid;
@@ -43,6 +44,7 @@
   color: #f5f4f0;
   margin: 5px;
   border-radius: 20px;
+  font-size: 10px;
 }
 #menu #item:nth-child(1) {
   background-color: #fcc43d;
@@ -128,6 +130,7 @@ body {
 
 .PlayGoogleBanner {
   text-align: center;
+  margin-top: 30px;
 }
 
 .PlayGoogleText {
@@ -139,7 +142,15 @@ body {
 
 .SelectLottery {
   margin: 10px;
-  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  font-size: 20px;
+}
+
+#lottery-select {
+  margin-top: 10px;
+  height: 35px;
+  font-size: 20px;
 }
 
 @keyframes spin {

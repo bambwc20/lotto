@@ -37,54 +37,70 @@ GoPlayGoogle.addEventListener("click", function () {
 
 var LOTTO = document.getElementById("LOTTO");
 
-function genLottoNo() {
-  var random = Math.floor(Math.random() * 45) + 1;
+function getBallNo() {
+  let random = Math.floor(Math.random() * 69) + 1;
   return random;
 }
 
-function getLuckyNumber() {
+function getPowerBallNo() {
+  let random = Math.floor(Math.random() * 26) + 1;
+  return random;
+}
+
+function getNumbers() {
   var numbers = [];
-  while (numbers.length < 6) {
+  while (numbers.length < 5) {
     //행 갯수 결정
-    var newNumber = genLottoNo();
+    var newNumber = getBallNo();
     if (numbers.indexOf(newNumber) < 0) {
       numbers.push(newNumber);
     }
   }
+  newNumber = getPowerBallNo();
+  numbers.push(newNumber);
   return numbers;
 }
 
-function PastLottoNo() {
-  var Past = Math.floor(Math.random() * 11) + 1;
+//과거 회차 번호이용해서 5자리 뽑는 코드
+function getBallNo_PastUse() {
+  var Past = Math.floor(Math.random() * 15) + 1;
   Past = Number(Past);
   var PastNo = Lotto_Ranking[Past];
   return PastNo;
 }
 
-function getLuckyNumber_Origin() {
+function getBallNo_Origin() {
   var numbers = [];
-  var test = Math.floor(3 * Math.random()) + 3;
+  var test = Math.floor(3 * Math.random()) + 2;
   while (numbers.length < test) {
-    var newNumber = genLottoNo();
+    var newNumber = getBallNo();
     if (numbers.indexOf(newNumber) < 0) {
       numbers.push(newNumber);
     }
   }
   return numbers;
 }
+//
 
-function getLuckyNumber_PastUse() {
-  var numbers = getLuckyNumber_Origin();
-  var rest = 6 - numbers.length;
+function getPowerBallNo_Origin() {
+  let random = Math.floor(Math.random() * 26) + 1;
+  return random;
+}
+
+function getNumbers_Through_PastUse() {
+  var numbers = getBallNo_Origin();
+  var rest = 5 - numbers.length;
   var i = 0;
   while (i < rest) {
     // 이부분이 문제가 있거나
-    var newNumber = PastLottoNo(); //이 함수가 재대로 작동은 안한다거나
+    var newNumber = getBallNo_PastUse(); //이 함수가 재대로 작동은 안한다거나
     if (numbers.indexOf(newNumber) < 0) {
       numbers.push(newNumber);
       i++;
     }
   }
+  newNumber = getPowerBallNo_Origin();
+  numbers.push(newNumber);
   return numbers;
 }
 
@@ -92,9 +108,9 @@ function checkLogic(numbers) {
   for (var i = 0; i < numbers.length; i++) {
     var no = numbers[i];
     if (numbers.indexOf(no + 1) >= 0 && numbers.indexOf(no + 2) >= 0)
-      return false;
+      return true;
   }
-  return true;
+  return false;
 }
 
 function Standard_Deviation(numbers) {
@@ -132,49 +148,51 @@ function removeClass() {
   document.querySelector(".loader").className = "loading";
 }
 
-var Lotto_Ranking = [34, 27, 43, 18, 17, 39, 12, 13, 40, 14, 20, 45];
+var Lotto_Ranking = [
+  34, 27, 43, 18, 17, 39, 12, 13, 40, 14, 20, 45, 53, 57, 69, 61,
+];
 
 function genLottoHTML_Select1() {
   var LOTTO = document.getElementById("LOTTO");
   LOTTO.innerHTML = "";
   var lottoHTML = "";
   alert(
-    `확인 버튼을 누르면 총 5개의 로또번호를 생성합니다. (예상 대기 시간: 0.4~0.5초)`
+    `Press the OK button to generate a total of 5 PowerBall numbers. (Expected wait time: 0.4 to 0.5 seconds)`
   );
   addClass();
   setTimeout(function () {
-    var numbers = getLuckyNumber();
+    var numbers = getNumbers();
     lottoHTML += '<div class="numset"><span class="number">';
     lottoHTML += numbers.join('</span> <span class="number">');
     lottoHTML += "</span></div>";
     LOTTO.innerHTML = lottoHTML;
     setTimeout(function () {
-      var numbers = getLuckyNumber();
+      var numbers = getNumbers();
       lottoHTML += '<div class="numset"><span class="number">';
       lottoHTML += numbers.join('</span> <span class="number">');
       lottoHTML += "</span></div>";
       LOTTO.innerHTML = lottoHTML;
       setTimeout(function () {
-        var numbers = getLuckyNumber();
+        var numbers = getNumbers();
         lottoHTML += '<div class="numset"><span class="number">';
         lottoHTML += numbers.join('</span> <span class="number">');
         lottoHTML += "</span></div>";
         LOTTO.innerHTML = lottoHTML;
         setTimeout(function () {
-          var numbers = getLuckyNumber();
+          var numbers = getNumbers();
           lottoHTML += '<div class="numset"><span class="number">';
           lottoHTML += numbers.join('</span> <span class="number">');
           lottoHTML += "</span></div>";
           LOTTO.innerHTML = lottoHTML;
           setTimeout(function () {
-            var numbers = getLuckyNumber();
+            var numbers = getNumbers();
             lottoHTML += '<div class="numset"><span class="number">';
             lottoHTML += numbers.join('</span> <span class="number">');
             lottoHTML += "</span></div>";
             LOTTO.innerHTML = lottoHTML;
             removeClass();
             setTimeout(function () {
-              alert("완료하였습니다.");
+              alert("Complete!");
             }, 100);
           }, 68);
         }, 150);
@@ -188,49 +206,49 @@ function genLottoHTML_Select2() {
   LOTTO.innerHTML = "";
   var lottoHTML = "";
   alert(
-    `확인 버튼을 누르면 연속된 숫자가 3개 이상 포함되어 있는 로또 번호의 경우의 수를 모두 제외한 후, 총 5개의 로또번호를 생성합니다. (예상 대기 시간: 4~5초)`
+    `Press the OK button, all but the number of PowerBall numbers that contain at least three consecutive numbers is excluded. (Expected wait time: 4 to 5 seconds)`
   );
   addClass();
   setTimeout(function () {
-    var numbers = getLuckyNumber();
+    var numbers = getNumbers();
     while (checkLogic(numbers)) {
-      numbers = getLuckyNumber();
+      numbers = getNumbers();
     }
     lottoHTML += '<div class="numset"><span class="number">';
     lottoHTML += numbers.join('</span> <span class="number">');
     lottoHTML += "</span></div>";
     LOTTO.innerHTML = lottoHTML;
     setTimeout(function () {
-      var numbers = getLuckyNumber();
+      var numbers = getNumbers();
       while (checkLogic(numbers)) {
-        numbers = getLuckyNumber();
+        numbers = getNumbers();
       }
       lottoHTML += '<div class="numset"><span class="number">';
       lottoHTML += numbers.join('</span> <span class="number">');
       lottoHTML += "</span></div>";
       LOTTO.innerHTML = lottoHTML;
       setTimeout(function () {
-        var numbers = getLuckyNumber();
+        var numbers = getNumbers();
         while (checkLogic(numbers)) {
-          numbers = getLuckyNumber();
+          numbers = getNumbers();
         }
         lottoHTML += '<div class="numset"><span class="number">';
         lottoHTML += numbers.join('</span> <span class="number">');
         lottoHTML += "</span></div>";
         LOTTO.innerHTML = lottoHTML;
         setTimeout(function () {
-          var numbers = getLuckyNumber();
+          var numbers = getNumbers();
           while (checkLogic(numbers)) {
-            numbers = getLuckyNumber();
+            numbers = getNumbers();
           }
           lottoHTML += '<div class="numset"><span class="number">';
           lottoHTML += numbers.join('</span> <span class="number">');
           lottoHTML += "</span></div>";
           LOTTO.innerHTML = lottoHTML;
           setTimeout(function () {
-            var numbers = getLuckyNumber();
+            var numbers = getNumbers();
             while (checkLogic(numbers)) {
-              numbers = getLuckyNumber();
+              numbers = getNumbers();
             }
             lottoHTML += '<div class="numset"><span class="number">';
             lottoHTML += numbers.join('</span> <span class="number">');
@@ -238,7 +256,7 @@ function genLottoHTML_Select2() {
             LOTTO.innerHTML = lottoHTML;
             removeClass();
             setTimeout(function () {
-              alert("완료하였습니다.");
+              alert("Complete!");
             }, 100);
           }, 1031);
         }, 1230);
@@ -252,21 +270,21 @@ function genLottoHTML_Select3() {
   LOTTO.innerHTML = "";
   var lottoHTML = "";
   alert(
-    `확인 버튼을 누르면 첫째, 둘째, 셋째의 조건들을 전부 만족하는 로또 번호 5개를 생성합니다. (예상 대기 시간: 15~17초)`
+    `press the OK button, you create 5 PowerBall numbers that satisfy all the conditions of the first, second, and third. (Expected wait time: 15-17 seconds)`
   );
   addClass();
   setTimeout(function () {
     var Selector = true;
-    var numbers = getLuckyNumber();
+    var numbers = getNumbers();
     while (Selector) {
       if (
-        checkLogic(numbers) &&
-        Standard_Deviation(numbers) &&
-        Lotto_Sum(numbers)
+        !checkLogic(numbers) === true &&
+        Standard_Deviation(numbers) === true &&
+        Lotto_Sum(numbers) === true
       ) {
         Selector = false;
       } else {
-        numbers = getLuckyNumber();
+        numbers = getNumbers();
         Selector = true;
       }
     }
@@ -276,16 +294,16 @@ function genLottoHTML_Select3() {
     LOTTO.innerHTML = lottoHTML;
     setTimeout(function () {
       var Selector = true;
-      var numbers = getLuckyNumber();
+      var numbers = getNumbers();
       while (Selector) {
         if (
-          checkLogic(numbers) &&
-          Standard_Deviation(numbers) &&
-          Lotto_Sum(numbers)
+          !checkLogic(numbers) === true &&
+          Standard_Deviation(numbers) === true &&
+          Lotto_Sum(numbers) === true
         ) {
           Selector = false;
         } else {
-          numbers = getLuckyNumber();
+          numbers = getNumbers();
           Selector = true;
         }
       }
@@ -295,16 +313,16 @@ function genLottoHTML_Select3() {
       LOTTO.innerHTML = lottoHTML;
       setTimeout(function () {
         var Selector = true;
-        var numbers = getLuckyNumber();
+        var numbers = getNumbers();
         while (Selector) {
           if (
-            checkLogic(numbers) &&
-            Standard_Deviation(numbers) &&
-            Lotto_Sum(numbers)
+            !checkLogic(numbers) === true &&
+            Standard_Deviation(numbers) === true &&
+            Lotto_Sum(numbers) === true
           ) {
             Selector = false;
           } else {
-            numbers = getLuckyNumber();
+            numbers = getNumbers();
             Selector = true;
           }
         }
@@ -314,16 +332,16 @@ function genLottoHTML_Select3() {
         LOTTO.innerHTML = lottoHTML;
         setTimeout(function () {
           var Selector = true;
-          var numbers = getLuckyNumber();
+          var numbers = getNumbers();
           while (Selector) {
             if (
-              checkLogic(numbers) &&
-              Standard_Deviation(numbers) &&
-              Lotto_Sum(numbers)
+              !checkLogic(numbers) === true &&
+              Standard_Deviation(numbers) === true &&
+              Lotto_Sum(numbers) === true
             ) {
               Selector = false;
             } else {
-              numbers = getLuckyNumber();
+              numbers = getNumbers();
               Selector = true;
             }
           }
@@ -333,16 +351,16 @@ function genLottoHTML_Select3() {
           LOTTO.innerHTML = lottoHTML;
           setTimeout(function () {
             var Selector = true;
-            var numbers = getLuckyNumber();
+            var numbers = getNumbers();
             while (Selector) {
               if (
-                checkLogic(numbers) &&
-                Standard_Deviation(numbers) &&
-                Lotto_Sum(numbers)
+                !checkLogic(numbers) === true &&
+                Standard_Deviation(numbers) === true &&
+                Lotto_Sum(numbers) === true
               ) {
                 Selector = false;
               } else {
-                numbers = getLuckyNumber();
+                numbers = getNumbers();
                 Selector = true;
               }
             }
@@ -352,7 +370,7 @@ function genLottoHTML_Select3() {
             LOTTO.innerHTML = lottoHTML;
             removeClass();
             setTimeout(function () {
-              alert("완료하였습니다.");
+              alert("Complete!");
             }, 100);
           }, 3000);
         }, 3000);
@@ -366,21 +384,21 @@ function genLottoHTML_Select4() {
   LOTTO.innerHTML = "";
   var lottoHTML = "";
   alert(
-    `확인 버튼을 누르면 AI가 데이터를 분석하고 로또 번호를 추첨해줍니다. (예상 대기 시간: 14~16초)`
+    `Press the confirmation button, AI analyzes the data and draws the PowerBall number. (Expected wait time: 24 to 26 seconds)`
   );
   addClass();
   setTimeout(function () {
     var Selector = true;
-    var numbers = getLuckyNumber();
+    var numbers = getNumbers_Through_PastUse();
     while (Selector) {
       if (
-        checkLogic(numbers) &&
-        Standard_Deviation(numbers) &&
-        Lotto_Sum(numbers)
+        !checkLogic(numbers) === true &&
+        Standard_Deviation(numbers) === true &&
+        Lotto_Sum(numbers) === true
       ) {
         Selector = false;
       } else {
-        numbers = getLuckyNumber_PastUse();
+        numbers = getNumbers_Through_PastUse();
         Selector = true;
       }
     }
@@ -391,16 +409,16 @@ function genLottoHTML_Select4() {
     LOTTO.innerHTML = lottoHTML;
     setTimeout(function () {
       var Selector = true;
-      var numbers = getLuckyNumber();
+      var numbers = getNumbers_Through_PastUse();
       while (Selector) {
         if (
-          checkLogic(numbers) &&
-          Standard_Deviation(numbers) &&
-          Lotto_Sum(numbers)
+          !checkLogic(numbers) === true &&
+          Standard_Deviation(numbers) === true &&
+          Lotto_Sum(numbers) === true
         ) {
           Selector = false;
         } else {
-          numbers = getLuckyNumber_PastUse();
+          numbers = getNumbers_Through_PastUse();
           Selector = true;
         }
       }
@@ -411,16 +429,16 @@ function genLottoHTML_Select4() {
       LOTTO.innerHTML = lottoHTML;
       setTimeout(function () {
         var Selector = true;
-        var numbers = getLuckyNumber();
+        var numbers = getNumbers_Through_PastUse();
         while (Selector) {
           if (
-            checkLogic(numbers) &&
-            Standard_Deviation(numbers) &&
-            Lotto_Sum(numbers)
+            !checkLogic(numbers) === true &&
+            Standard_Deviation(numbers) === true &&
+            Lotto_Sum(numbers) === true
           ) {
             Selector = false;
           } else {
-            numbers = getLuckyNumber_PastUse();
+            numbers = getNumbers_Through_PastUse();
             Selector = true;
           }
         }
@@ -431,16 +449,16 @@ function genLottoHTML_Select4() {
         LOTTO.innerHTML = lottoHTML;
         setTimeout(function () {
           var Selector = true;
-          var numbers = getLuckyNumber();
+          var numbers = getNumbers_Through_PastUse();
           while (Selector) {
             if (
-              checkLogic(numbers) &&
-              Standard_Deviation(numbers) &&
-              Lotto_Sum(numbers)
+              !checkLogic(numbers) === true &&
+              Standard_Deviation(numbers) === true &&
+              Lotto_Sum(numbers) === true
             ) {
               Selector = false;
             } else {
-              numbers = getLuckyNumber_PastUse();
+              numbers = getNumbers_Through_PastUse();
               Selector = true;
             }
           }
@@ -451,16 +469,16 @@ function genLottoHTML_Select4() {
           LOTTO.innerHTML = lottoHTML;
           setTimeout(function () {
             var Selector = true;
-            var numbers = getLuckyNumber();
+            var numbers = getNumbers_Through_PastUse();
             while (Selector) {
               if (
-                checkLogic(numbers) &&
-                Standard_Deviation(numbers) &&
-                Lotto_Sum(numbers)
+                !checkLogic(numbers) === true &&
+                Standard_Deviation(numbers) === true &&
+                Lotto_Sum(numbers) === true
               ) {
                 Selector = false;
               } else {
-                numbers = getLuckyNumber_PastUse();
+                numbers = getNumbers_Through_PastUse();
                 Selector = true;
               }
             }
@@ -471,13 +489,13 @@ function genLottoHTML_Select4() {
             LOTTO.innerHTML = lottoHTML;
             removeClass();
             setTimeout(function () {
-              alert("완료하였습니다.");
+              alert("Complete!");
             }, 100);
-          }, 3150);
-        }, 3150);
-      }, 3150);
-    }, 3150);
-  }, 3150);
+          }, 5150);
+        }, 5150);
+      }, 5150);
+    }, 5150);
+  }, 5150);
 }
 
 // var keydownCtrl = 0;

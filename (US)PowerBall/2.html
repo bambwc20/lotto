@@ -29,7 +29,7 @@
     <meta property="og:title" content="Lotto AI Analysis Site" />
     <meta
       property="og:description"
-      content="It is a site that draws the best lottery number considering the continuity, repeatability, standard deviation, and sum of the number of the first-place(winning number) lotto numbers of all time."
+      content="It is a site that draws the best powerball number considering the continuity, repeatability, standard deviation, and sum of the number of the first-place(winning number) lotto numbers of all time."
     />
 
     <link rel="stylesheet" href="lotto.css" />
@@ -38,13 +38,13 @@
   </head>
   <body>
     <div id="title">
-      <img src="lotto.jpg" width="70%" class="select0" />
+      <img src="lotto.png" width="70%" class="select0" />
     </div>
 
     <div id="menu">
       <div class="select1" id="item">
         <h2>
-          general<br />
+          General<br />
           draw
         </h2>
       </div>
@@ -74,26 +74,27 @@
     <div class="week_number">Check the results of the winnings</div>
 
     <div id="template">
-      <h1>연속제외 추첨</h1>
+      <h1>Continuous exclusion draw</h1>
       <h3>
         <ul>
           <li>
             <p>
-              로또에서 11,12,13,14,15,16과 18,38,11,12,29,13 과 같이 연속된
-              숫자가 1등으로 당첨되는 것은 확률이 매우 매우 희박합니다. 따라서
-              연속되는 것만 제거해도 1등에 당첨될 확률이 상승합니다. 그러므로 본
-              추첨방식은 11,12,13과 같이 연속된 숫자가 3개 이상 포함되어 있는
-              로또 번호가 나오지 않도록 추첨해드립니다.
+              It is very, very unlikely that successive numbers such as
+              11,12,13,14,15,16 and 18,38,11,12,29,13 will win first place in
+              the powerball. Therefore, even if you remove the continuous ones,
+              the chances of winning first place increase. Therefore, we will
+              use this Drawer, through preventing powerball numbers containing
+              more than three consecutive numbers, such as 11,12,13.
             </p>
           </li>
 
           <li>
             <p>
-              연속된 숫자가 3개 이상 포함된 로또 번호의 경우의 수는 5,297,60가지
-              입니다.(1,9,35,34,19,33 또는 7,9,28,10,32,8 이러한 로또 번호들이
-              5,297,60가지 라는 뜻입니다) 이 경우의 수들은 로또 1등의 당첨
-              번호로 되기에는 확률이 매우 매우 희박하기 때문에, 이것들을
-              제외한다면 실제로 로또 1등에 당첨될 확률은 상승합니다.
+              There are 5,297,60 items powerball numbers containing more than
+              three consecutive numbers (1,9,35,34,33, or 7,9,28,10,32,8)(These
+              lotto numbers mean 5,297,60.), so if you exclude them, the
+              probability of actually winning first place increases if you
+              exclude them.
             </p>
           </li>
         </ul>
@@ -101,7 +102,7 @@
     </div>
 
     <div id="btn_group">
-      <button id="test_btn" onclick="genLottoHTML_Select4()">Draw</button>
+      <button id="test_btn" onclick="genLottoHTML_Select2()">Draw</button>
     </div>
     <div id="LOTTO"></div>
     <div class="loading"></div>

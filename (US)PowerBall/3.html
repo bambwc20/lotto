@@ -29,7 +29,7 @@
     <meta property="og:title" content="Lotto AI Analysis Site" />
     <meta
       property="og:description"
-      content="It is a site that draws the best lottery number considering the continuity, repeatability, standard deviation, and sum of the number of the first-place(winning number) lotto numbers of all time."
+      content="It is a site that draws the best powerball number considering the continuity, repeatability, standard deviation, and sum of the number of the first-place(winning number) lotto numbers of all time."
     />
 
     <link rel="stylesheet" href="lotto.css" />
@@ -38,13 +38,13 @@
   </head>
   <body>
     <div id="title">
-      <img src="lotto.jpg" width="70%" class="select0" />
+      <img src="lotto.png" width="70%" class="select0" />
     </div>
 
     <div id="menu">
       <div class="select1" id="item">
         <h2>
-          general<br />
+          General<br />
           draw
         </h2>
       </div>
@@ -74,51 +74,53 @@
     <div class="week_number">Check the results of the winnings</div>
 
     <div id="template">
-      <h1>고확률 추첨</h1>
+      <h1>High probability draw</h1>
       <h3>
         <ul>
           <li>
             <p>
-              역대 회차의 1등 당첨 번호들을 분석하였을 때, 총 6개의 번호가
-              다음과 같은 것들을 만족하였을 때, 로또 1등 당첨이 가장 많이 되었던
-              것으로 나타났습니다.
+              According to the analysis of the winning numbers from the first
+              place to the previous rounds, a total of six numbers satisfied the
+              following, and the winning of the lottery was the most common.
             </p>
           </li>
           <li>
             <p>
-              첫째, 3자리 이상 연속되는 번호가 나오지 않을 경우에, 역대 로또 1등
-              당첨 번호로 나온 경우가 많았습니다.
+              First, if there were no numbers with more than 3 consecutive
+              digits, they often won first place.
             </p>
           </li>
           <li>
             <p>
-              둘째, 번호 6자리의 표준편차가 10에서 15 사이 일때, 역대 로또 1등
-              당첨 번호로 나온 경우가 많았습니다. <br />
-              (표준편차: 자료가 평균을 중심으로 얼마나 퍼져 있는지를 나타내는
-              수치)<br />
-              (ex. 1,2,3,4,5,6,7 표준편차->1.709)<br />
-              (ex. 37,38,39,40,41,42 표준편차->1.709)<br />
-              (ex. 22,3,36,20,37,27 표준편차->11.422)
+              Second, when the standard deviation of 6 numbers was between 10
+              and 15, it often came out as the winning number. <br />
+              (Standard deviation: a Number that indicates how spread the data
+              is around the mean)<br />
+              (ex. 1,2,3,4,5,6,7 Standard deviation->1.709)<br />
+              (ex. 37,38,39,40,41,42 Standard deviation->1.709)<br />
+              (ex. 22,3,36,20,37,27 Standard deviation->11.422)
             </p>
           </li>
           <li>
             <p>
-              셋째, 번호 6자리의 총합이 96에서 175 사이 일때, 역대 로또 1등 당첨
-              번호로 나온 경우가 많았습니다.
+              Third, when the sum of six numbers was between 96 and 175, it
+              often came out as the winning number of the first prize in the
+              powerball.
             </p>
           </li>
           <li>
             <p>
-              연속제외 추첨과 위의 추첨이 다른 점은 전자의 경우 수학적인 증명을
-              기반으로 로또 번호를 추첨해드리고, 후자의 경우는 통계를 기반으로
-              로또 번호를 추첨해드리고 있다는 것입니다.
+              The difference between the consecutive exclusion draw and the
+              above draw is that the former draws powerball numbers based on
+              mathematical proofs, and the latter draws powerball numbers based
+              on statistics.
             </p>
           </li>
           <li>
             <p>
-              본 추첨 방식은 최적의 번호 조합을 제공하기 위하여, 복잡한
-              알고리즘을 적용하였으므로, 일반 추첨이나 연속제외 추첨보다는
-              시간이 다소 오래 걸릴 수 있습니다.
+              To provide the best combination of numbers, this draw method has a
+              complex algorithm, which may take longer than a general draw or a
+              Continuous exclusion draw
             </p>
           </li>
         </ul>
@@ -126,7 +128,7 @@
     </div>
 
     <div id="btn_group">
-      <button id="test_btn" onclick="genLottoHTML_Select4()">Draw</button>
+      <button id="test_btn" onclick="genLottoHTML_Select3()">Draw</button>
     </div>
     <div id="LOTTO"></div>
     <div class="loading"></div>

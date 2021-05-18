@@ -128,6 +128,7 @@ body {
 
 .PlayGoogleBanner {
   text-align: center;
+  margin-top: 30px;
 }
 
 .PlayGoogleText {
@@ -139,7 +140,15 @@ body {
 
 .SelectLottery {
   margin: 10px;
-  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-bottom: 50px;
+  font-size: 20px;
+}
+
+#lottery-select {
+  margin-top: 10px;
+  height: 35px;
+  font-size: 20px;
 }
 
 @keyframes spin {

@@ -23,11 +23,6 @@ location4.addEventListener("click", function () {
   window.location = "4.html";
 });
 
-var check_web_lotto_number = document.querySelector(".week_number");
-check_web_lotto_number.addEventListener("click", function () {
-  window.open("https://www.dhlottery.co.kr/common.do?method=main");
-});
-
 const GoPlayGoogle = document.querySelector(".PlayGoogle");
 GoPlayGoogle.addEventListener("click", function () {
   window.open(

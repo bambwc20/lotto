@@ -72,17 +72,6 @@ body {
 #title {
   text-align: center;
 }
-.week_number {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  border: 1px gray solid;
-  padding: 10px;
-  text-align: center;
-  background-color: #eeb292;
-  color: #f5f4f0;
-  font-size: 20px;
-  border-radius: 10px;
-}
 .share {
   margin-top: 20px;
   margin-bottom: 10px;

@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <style>
       body {
         background-color: #dadada;
@@ -15,15 +14,13 @@
   <body></body>
 </html>
 <script>
-  axios.get("./Image").then((res) => {
-    let body = "";
-    console.log(res.data);
-    for (let i = 0; i < res.data.length; i++) {
-      body += `    <div style="margin-Top: 30px">
-      <img src="./Image/${res.data[i]}" width="100%" />
+  let round = 14;
+  let body = "";
+  for (let i = 0; i < round; i++) {
+    body += `    <div style="margin-Top: 30px">
+      <img src="./Image/${i + 1}.jpg" width="100%" />
       <h4>확대해서 보십시오.</h4>
     </div>`;
-    }
-    document.querySelector("body").innerHTML = body;
-  });
+  }
+  document.querySelector("body").innerHTML = body;
 </script>

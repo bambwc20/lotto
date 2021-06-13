@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <script
+      data-ad-client="ca-pub-2377582591865471"
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-6037e23f544e480b"
+    ></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-L29MTD86T5"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-L29MTD86T5");
+    </script>
+    <meta charset="UTF-8" />
+    <meta
+      name="naver-site-verification"
+      content="41f83cdf447a5efdf3a7e9f8271861fddf52c73f"
+    />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="로또 역대 회차 분석 AI 추첨기입니다. 무료인 동시에 자동으로 역대 로또 회차를 분석하여 로또 번호를 추첨해줍니다. "
+    />
+    <meta property="og:title" content="로또 인공지능 분석 사이트" />
+    <meta
+      property="og:description"
+      content="역대 1등 로또 번호에서 숫자의 연속성, 반복성, 표준편차, 합을 모두 고려하여 최적의 로또 번호를 추첨해드리는 사이트입니다."
+    />
+
+    <link rel="stylesheet" href="lotto.css" />
+    <link
+      rel="canonical"
+      href="https://www.lottoaiselect.netlify.app/index.html"
+    />
+    <link rel="canonical" href="https://www.ailotto.tk/index.html" />
+    <title>Lotto</title>
+  </head>
+  <body>
+    <div id="title">
+      <img src="lotto.jpg" width="70%" class="select0" />
+    </div>
+
+    <div id="menu">
+      <div class="select1" id="item">
+        <h2>
+          일반<br />
+          추첨
+        </h2>
+      </div>
+
+      <div class="select2" id="item">
+        <h2>
+          연속제외<br />
+          추첨
+        </h2>
+      </div>
+
+      <div class="select3" id="item">
+        <h2>
+          고확률<br />
+          추첨
+        </h2>
+      </div>
+
+      <div class="select4" id="item">
+        <h2>
+          인공지능<br />
+          추첨
+        </h2>
+      </div>
+    </div>
+
+    <div id="template">
+      <h1>일반 추첨</h1>
+      <h3>
+        <ul>
+          <li>
+            <p>
+              본 추첨방식은 시중의 일반적인 자동화 기기와 같습니다. 아래의
+              버튼을 누르면 1~45의 숫자 중에서 무작위로 6개의 숫자를 뽑은 뒤,
+              자동으로 5개의 로또 번호를 제공해줍니다.
+            </p>
+          </li>
+        </ul>
+      </h3>
+    </div>
+
+    <div id="btn_group">
+      <button id="test_btn" onclick="genLottoHTML_Select1()">추첨하기</button>
+    </div>
+    <div id="LOTTO"></div>
+    <div class="loading"></div>
+
+    <div class="share">
+      <div>
+        <b>차별화된 AI 분석 추첨기! <br />좋은 건 혼자 쓰세요!</b>
+      </div>
+      <div class="addthis_inline_share_toolbox"></div>
+    </div>
+
+    <script src="lotto.js"></script>
+  </body>
+</html>

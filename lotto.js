@@ -50,7 +50,7 @@ function getLuckyNumber() {
 }
 
 function PastLottoNo() {
-  var Past = Math.floor(Math.random() * 11) + 1;
+  var Past = Math.floor(Math.random() * 12);
   Past = Number(Past);
   var PastNo = Lotto_Ranking[Past];
   return PastNo;

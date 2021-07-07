@@ -63,7 +63,7 @@ function getNumbers() {
 
 //과거 회차 번호이용해서 5자리 뽑는 코드
 function getBallNo_PastUse() {
-  var Past = Math.floor(Math.random() * 15) + 1;
+  var Past = Math.floor(Math.random() * 16);
   Past = Number(Past);
   var PastNo = Lotto_Ranking[Past];
   return PastNo;

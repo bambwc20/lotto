@@ -58,9 +58,9 @@ function PastLottoNo() {
 
 function getLuckyNumber_Origin() {
   var numbers = [];
-  var test = Math.floor(3 * Math.random()) + 3;
+  var test = Math.floor(3 * Math.random()) + 1;
   while (numbers.length < test) {
-    var newNumber = genLottoNo();
+    var newNumber = PastLottoNo();
     if (numbers.indexOf(newNumber) < 0) {
       numbers.push(newNumber);
     }
@@ -74,7 +74,7 @@ function getLuckyNumber_PastUse() {
   var i = 0;
   while (i < rest) {
     // 이부분이 문제가 있거나
-    var newNumber = PastLottoNo(); //이 함수가 재대로 작동은 안한다거나
+    var newNumber = genLottoNo(); //이 함수가 재대로 작동은 안한다거나
     if (numbers.indexOf(newNumber) < 0) {
       numbers.push(newNumber);
       i++;
